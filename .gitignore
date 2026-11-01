@@ -1,0 +1,25 @@
+node_modules/
+dist/
+.nx/
+.next/
+coverage/
+.env
+.env.*
+!.env.example
+.DS_Store
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+*.log
+
+# Yarn Plug'n'Play files (we use node_modules)
+.pnp.*
+
+
+
+.nx/cache
+.nx/workspace-data
+.nx/migrate-runs

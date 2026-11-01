@@ -1,0 +1,17 @@
+{
+  "name": "ds-copilot",
+  "packageManager": "yarn@4.18.1",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.14.0",
+    "nx": "24.0.3",
+    "prettier": "^3.9.10",
+    "typescript": "6",
+    "typescript-eslint": "^8.72.1"
+  }
+}
