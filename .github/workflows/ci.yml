@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# nx-set-shas reads workflow run info through the GitHub API, which needs actions: read
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # Nx needs full history to find what changed ("affected")
+          fetch-depth: 0
+
+      # Yarn 4 is provided by corepack; enable it before setup-node uses yarn for caching
+      - name: Enable corepack
+        run: corepack enable
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      # Sets the base and head commits that "nx affected" compares
+      - uses: nrwl/nx-set-shas@v4
+
+      - name: Lint, typecheck, build (affected only)
+        run: yarn nx affected -t lint typecheck build
