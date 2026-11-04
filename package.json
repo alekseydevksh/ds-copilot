@@ -11,7 +11,8 @@
     "db:down": "docker compose down",
     "db:generate": "yarn workspace @ds-copilot/db db:generate",
     "db:migrate": "yarn workspace @ds-copilot/db db:migrate",
-    "dev:api": "yarn workspace @ds-copilot/api dev"
+    "dev:api": "yarn workspace @ds-copilot/api dev",
+    "dev:web": "yarn workspace @ds-copilot/web dev"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

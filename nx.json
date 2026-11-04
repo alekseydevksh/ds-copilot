@@ -5,7 +5,11 @@
     "build": {
       "dependsOn": ["^build"],
       "cache": true,
-      "outputs": ["{projectRoot}/dist"]
+      "outputs": [
+        "{projectRoot}/dist",
+        "{projectRoot}/.next",
+        "!{projectRoot}/.next/cache"
+      ]
     },
     "lint": {
       "cache": true
