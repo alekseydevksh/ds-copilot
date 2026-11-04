@@ -23,3 +23,6 @@ coverage/
 .nx/cache
 .nx/workspace-data
 .nx/migrate-runs
+# Next.js generated
+next-env.d.ts
+*.tsbuildinfo
